@@ -102,6 +102,15 @@ class Trix.ToolbarController extends Trix.BasicObject
         return true
     false
 
+  # Custom element
+  toggleToolbarVisibility: ->
+    isHidden = @element.hasAttribute('data-trix-toolbar-hidden')
+
+    if isHidden
+      @element.removeAttribute('data-trix-toolbar-hidden')
+    else
+      @element.setAttribute('data-trix-toolbar-hidden', '')
+
   # Dialogs
 
   dialogIsVisible: (dialogName) ->

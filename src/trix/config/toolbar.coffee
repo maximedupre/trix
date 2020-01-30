@@ -30,6 +30,8 @@ Trix.config.toolbar =
         <button type="button" class="trix-button trix-button--icon trix-button--icon-undo" data-trix-action="undo" data-trix-key="z" title="#{lang.undo}" tabindex="-1">#{lang.undo}</button>
         <button type="button" class="trix-button trix-button--icon trix-button--icon-redo" data-trix-action="redo" data-trix-key="shift+z" title="#{lang.redo}" tabindex="-1">#{lang.redo}</button>
       </span>
+
+      <button type="button" hidden="true" data-trix-key="shift+m" data-trix-action="toggleMarkdown">Markdown editor toggle</button>
     </div>
 
     <div class="trix-dialogs" data-trix-dialogs>

@@ -2,10 +2,11 @@ Trix.registerElement "trix-toolbar",
   defaultCSS: """
     %t {
       display: block;
+      white-space: nowrap;
     }
 
-    %t {
-      white-space: nowrap;
+    %t[data-trix-toolbar-hidden] {
+      visibility: hidden;
     }
 
     %t [data-trix-dialog] {

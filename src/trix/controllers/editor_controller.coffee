@@ -314,6 +314,8 @@ class Trix.EditorController extends Trix.Controller
     attachFiles:
       test: -> true
       perform: -> Trix.config.input.pickFiles(@editor.insertFiles)
+    toggleMarkdown:
+      perform: -> @toolbarController.toggleToolbarVisibility()
 
   canInvokeAction: (actionName) ->
     if @actionIsExternal(actionName)
