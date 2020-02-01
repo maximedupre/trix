@@ -3,7 +3,7 @@
 
 {makeElement, findInnerElement, getTextConfig} = Trix
 
-class Trix.PieceView extends Trix.ObjectView
+class Trix.HtmlPieceView extends Trix.ObjectView
   constructor: ->
     super
     @piece = @object
