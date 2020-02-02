@@ -315,7 +315,16 @@ class Trix.EditorController extends Trix.Controller
       test: -> true
       perform: -> Trix.config.input.pickFiles(@editor.insertFiles)
     toggleMarkdown:
-      perform: -> @toolbarController.toggleToolbarVisibility()
+      perform: ->
+        Trix.isMarkdownMode = if Trix.isMarkdownMode then false else true
+
+        @toolbarController.toggleToolbarVisibility()
+
+        jsonDocument = @composition.document.toJSON()
+        newDocument = Trix.Document.fromJSON(jsonDocument)
+
+        @composition.setDocument(newDocument)
+        @render()
 
   canInvokeAction: (actionName) ->
     if @actionIsExternal(actionName)

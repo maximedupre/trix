@@ -1,4 +1,5 @@
 #= require trix/views/html_piece_view
+#= require trix/views/markdown_piece_view
 
 class Trix.TextView extends Trix.ObjectView
   constructor: ->
@@ -17,7 +18,7 @@ class Trix.TextView extends Trix.ObjectView
       context.isLast = true if index is lastIndex
       context.followsWhitespace = true if endsWithWhitespace(previousPiece)
 
-      view = @findOrCreateCachedChildView(Trix.HtmlPieceView, piece, {@textConfig, context})
+      view = @findOrCreateCachedChildView((if Trix.isMarkdownMode then Trix.MarkdownPieceView else Trix.HtmlPieceView), piece, {@textConfig, context})
       nodes.push(view.getNodes()...)
 
       previousPiece = piece
