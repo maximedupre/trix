@@ -320,12 +320,7 @@ class Trix.EditorController extends Trix.Controller
         Trix.isMarkdownMode = if Trix.isMarkdownMode then false else true
 
         @toolbarController.toggleToolbarVisibility()
-
-        jsonDocument = @composition.document.toJSON()
-        newDocument = Trix.Document.fromJSON(jsonDocument)
-
-        @composition.setDocument(newDocument)
-        @render()
+        @compositionController.toggleMarkdown()
 
   canInvokeAction: (actionName) ->
     if @actionIsExternal(actionName)

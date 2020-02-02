@@ -56,6 +56,12 @@ class Trix.CompositionController extends Trix.BasicObject
 
     @delegate?.compositionControllerDidRender?()
 
+  toggleMarkdown: ->
+    delete @revision
+    @documentView.invalidate()
+    @refreshViewCache()
+    @render()
+
   rerenderViewForObject: (object) ->
     @invalidateViewForObject(object)
     @render()
